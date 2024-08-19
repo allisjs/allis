@@ -3,20 +3,12 @@ hero:
   title: library
   description: A JavaScript validator and parser library delivering modularity.
   actions:
-    - text: Hello
-      link: /
-    - text: World
-      link: /
+    - text: isMobileNo()
+      link: /docs/api/mobile-no
+    - text: 更多
+      link: /docs/api/ip
 features:
-  - title: Hello
-    emoji: 💎
-    description: Put hello description here
-  - title: World
-    emoji: 🌈
-    description: Put world description here
-  - title: '!'
-    emoji: 🚀
-    description: Put ! description here
+  - title: 严格数据校验
+  - title: 数据清洗
+  - title: 数据格式化
 ---
-
-iscorrect

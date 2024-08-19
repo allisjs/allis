@@ -1,50 +1,28 @@
-import { useLocale } from 'dumi';
 import { EditOutlined, GithubFilled } from '@ant-design/icons';
 import { Divider, Space, Typography } from 'antd';
 import { useResponsive } from 'antd-style';
-import { FC, memo, ReactNode } from 'react';
+import React, { FC, memo, ReactNode } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
 import Code from 'dumi-theme-antd-style/dist/components/CodeSnippet';
 
-import { ApiHeaderProps } from 'dumi-theme-antd-style/src';
 import { useStyles } from 'dumi-theme-antd-style/dist/components/ApiHeader/style';
+import { ApiHeaderProps } from 'dumi-theme-antd-style/src';
 
-/**
- * @title API 标题属性
- * @extends ApiHeaderProps
- */
 export interface ApiTitleProps extends ApiHeaderProps {
-  /**
-   * @title 标题
-   */
   title: string;
-  /**
-   * @title 服务列表
-   * @description 可选，若存在则展示 API 服务列表
-   */
+  description?: string;
+  sourceUrl?: string;
+  docUrl?: string;
   serviceList?: ServiceItem[];
+  componentName?: string;
+  pkg?: string;
 }
 
-/**
- * @title 服务项
- */
 export interface ServiceItem {
-  /**
-   * @title 服务标签
-   */
   label: string;
-  /**
-   * @title 服务图标
-   */
   icon: ReactNode;
-  /**
-   * @title 服务描述
-   */
   children: string;
-  /**
-   * @title 服务链接
-   */
   url: string;
 }
 
@@ -60,7 +38,7 @@ export const ApiHeader: FC<ApiTitleProps> = memo(
   }) => {
     const { styles } = useStyles();
     const { mobile } = useResponsive();
-    
+
     if (!componentName) return null;
 
     const items = [
@@ -76,7 +54,9 @@ export const ApiHeader: FC<ApiTitleProps> = memo(
       },
     ].filter((i) => i) as ServiceItem[];
 
-    const importStr = `import is${componentName} from '${pkg}/${componentName}';`
+    const importStr = `import is${componentName
+      .slice(0, 1)
+      .toUpperCase()}${componentName.slice(1)} from '${pkg}/${componentName}';`;
 
     return (
       <Flexbox>
@@ -100,7 +80,11 @@ export const ApiHeader: FC<ApiTitleProps> = memo(
             <Code>{importStr}</Code>
           </Flexbox>
           <Divider dashed style={{ margin: '2px 0' }} />
-          <Flexbox horizontal={!mobile} gap={mobile ? 24 : 0} distribution={'space-between'}>
+          <Flexbox
+            horizontal={!mobile}
+            gap={mobile ? 24 : 0}
+            distribution={'space-between'}
+          >
             <Space split={<Divider type={'vertical'} />} wrap>
               {serviceList.map((item) => (
                 <a
@@ -110,7 +94,12 @@ export const ApiHeader: FC<ApiTitleProps> = memo(
                   rel="noreferrer"
                   title={item.label}
                 >
-                  <Flexbox horizontal align={'center'} gap={8} className={styles.text}>
+                  <Flexbox
+                    horizontal
+                    align={'center'}
+                    gap={8}
+                    className={styles.text}
+                  >
                     <>{item.icon}</>
                     <>{item.children}</>
                   </Flexbox>
@@ -118,10 +107,23 @@ export const ApiHeader: FC<ApiTitleProps> = memo(
               ))}
             </Space>
 
-            <Space split={<Divider type={'vertical'} />} className={styles.meta}>
+            <Space
+              split={<Divider type={'vertical'} />}
+              className={styles.meta}
+            >
               {items.map((item) => (
-                <a key={item.url} href={item.url} target={'_blank'} rel="noreferrer">
-                  <Flexbox horizontal align={'center'} gap={8} className={styles.text}>
+                <a
+                  key={item.url}
+                  href={item.url}
+                  target={'_blank'}
+                  rel="noreferrer"
+                >
+                  <Flexbox
+                    horizontal
+                    align={'center'}
+                    gap={8}
+                    className={styles.text}
+                  >
                     <>{item.icon}</>
                     <>{item.children}</>
                   </Flexbox>

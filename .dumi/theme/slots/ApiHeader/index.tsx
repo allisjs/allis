@@ -1,4 +1,4 @@
-import { FC, memo, useMemo } from 'react';
+import React, { FC, memo, useMemo } from 'react';
 import { ApiHeader as Header } from '../../components/ApiHeader';
 import { apiHeaderSel, useSiteStore } from 'dumi-theme-antd-style/dist/store';
 import NpmFilled from 'dumi-theme-antd-style/dist/slots/ApiHeader/NpmFilled';

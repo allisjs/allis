@@ -10,6 +10,9 @@ const themeConfig: SiteThemeConfig = {
     docUrl: `{github}/tree/master/example/docs/components/{atomId}.{locale}.md`,
     match: ['/docs', '/zh-CN/docs'],
   },
+  footerConfig: {
+    columns: [],
+  },
 };
 
 export default defineConfig({

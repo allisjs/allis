@@ -2,6 +2,57 @@
 title: mobileNo
 ---
 
+## Usage
+
+### Basic
+
+```js
+import isMobileNo from 'iscorrect/mobileNo';
+isMobileNo('13333333333'); // { valid: true }
+```
+
+### Loose Mode
+
+In loose mode, spaces and hyphens (-) are allowed as separators.
+
+```js
+import isMobileNo from 'iscorrect/mobileNo';
+isMobileNo('133-3333-3333'); // { valid: true }
+```
+
+### Data Cleaning
+
+Data cleaning could be performed concurrently with validation.
+
+```js
+import isMobileNo from 'iscorrect/mobileNo';
+
+function validateAndClean(mobileNo) {
+  const { valid, formatted } = isMobileNo(mobileNo;
+  if (valid) return formatted.local;
+}
+
+validateAndClean('133-3333-3333'); // '13333333333'
+```
+
+### Specifically for Segments
+
+By default, all segments are validated, but you can adjust the scope of validation through parameters.
+```js
+import isMobileNo from 'iscorrect/mobileNo';
+
+isMobileNo('14000000000', {
+  rules: {
+    dataCard: true, // specify whether to validate the "internet card" segment.
+    virtualOperator: true, // specify whether to validate the "virtual operator" segment.
+    satellite: true, // specify whether to validate the "satellite" segment.
+    internetOfThings: true, // specify whether to validate the "internet of things" segment.
+  },
+});
+```
+
+## Example
+
 ```tsx
 /**
  * inline: true
@@ -118,56 +169,6 @@ export default function () {
 }
 ```
 
-## 使用方法
-
-```js
-import isMobileNo from 'iscorrect/mobileNo';
-isMobileNo('13333333333'); // { valid: true }
-```
-
-## 更多用法
-
-### 宽松校验
-
-宽松校验模式下，允许使用“空格”和“-”分隔符。
-
-```js
-import isMobileNo from 'iscorrect/mobileNo';
-isMobileNo('133-3333-3333'); // { valid: true }
-```
-
-### 数据清洗
-
-在校验的同时进行数据清洗
-
-```js
-import isMobileNo from 'iscorrect/mobileNo';
-
-function validateAndClean(mobileNo) {
-  const { valid, formatted } = isMobileNo(mobileNo;
-  if (valid) return formatted.local;
-}
-
-validateAndClean('133-3333-3333'); // '13333333333'
-```
-
-### 校验特定号段
-
-默认会校验所有号段，你可以通过参数调整校验范围
-
-```js
-import isMobileNo from 'iscorrect/mobileNo';
-
-isMobileNo('14000000000', {
-  rules: {
-    dataCard: true, // 是否校验“上网卡”号段
-    virtualOperator: true, // 是否校验“虚拟运营商”号段
-    satellite: true, // 是否校验“卫星通信”号段
-    internetOfThings: true, // 是否校验“物联网”号段
-  },
-});
-```
-
 ## API
 
 #### 入参
@@ -197,7 +198,7 @@ isMobileNo('14000000000', {
 | type      | 号段类型       | string                              | 否       |
 | formatted | 号码格式化结果 | {international:string,local:string} | 否       |
 
-## 号段规则
+## Segment Rules
 
 中国电信：133、149、153、173、177、180、181、189、190、191、193、199<br/>
 中国联通：130、131、132、145、155、156、166、167、171、175、176、185、186、196<br/>
