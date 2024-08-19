@@ -1,0 +1,1 @@
+{"version":3,"sources":["packages/iscorrect/src/IP/index.md?type=text"],"sourcesContent":["\n  import '/home/runner/work/iscorrect/iscorrect/packages/iscorrect/src/IP/index.md?watch=parent';\n  export const texts = [{\"value\":\"...\",\"paraId\":0}];\n  "],"names":[],"mappings":"2OAEe,6CAAA,QADN,YACA,IAAM,EAAQ,CAAC,CAAC,MAAQ,MAAM,OAAS,CAAC,EAAE"}
