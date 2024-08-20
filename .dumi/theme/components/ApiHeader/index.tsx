@@ -3,9 +3,6 @@ import { Divider, Space, Typography } from 'antd';
 import { useResponsive } from 'antd-style';
 import React, { FC, memo, ReactNode } from 'react';
 import { Flexbox } from 'react-layout-kit';
-
-import Code from 'dumi-theme-antd-style/dist/components/CodeSnippet';
-
 import { useStyles } from 'dumi-theme-antd-style/dist/components/ApiHeader/style';
 import { ApiHeaderProps } from 'dumi-theme-antd-style/src';
 
@@ -31,7 +28,7 @@ export const ApiHeader: FC<ApiTitleProps> = memo(
     title,
     componentName,
     description,
-    pkg,
+    // pkg,
     sourceUrl,
     docUrl,
     serviceList = [],
@@ -54,10 +51,6 @@ export const ApiHeader: FC<ApiTitleProps> = memo(
       },
     ].filter((i) => i) as ServiceItem[];
 
-    const importStr = `import is${componentName
-      .slice(0, 1)
-      .toUpperCase()}${componentName.slice(1)} from '${pkg}/${componentName}';`;
-
     return (
       <Flexbox>
         <Typography.Title className={styles.title}>{title}</Typography.Title>
@@ -69,16 +62,6 @@ export const ApiHeader: FC<ApiTitleProps> = memo(
           </div>
         )}
         <Flexbox style={{ marginTop: 16 }} gap={mobile ? 16 : 24}>
-          <Flexbox horizontal={!mobile} gap={mobile ? 12 : 0}>
-            <Typography.Text
-              className={styles.label}
-              type={'secondary'}
-              style={{ display: 'flex', alignItems: 'center' }}
-            >
-              引入方法
-            </Typography.Text>
-            <Code>{importStr}</Code>
-          </Flexbox>
           <Divider dashed style={{ margin: '2px 0' }} />
           <Flexbox
             horizontal={!mobile}

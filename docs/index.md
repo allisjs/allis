@@ -3,10 +3,8 @@ hero:
   title: library
   description: A JavaScript validator and parser library delivering modularity.
   actions:
-    - text: isMobileNo()
-      link: /docs/api/mobile-no
-    - text: More
-      link: /docs/api/ip
+    - text: isCNMobileNo()
+      link: /cn/mobile-no
 features:
   - title: Strict Data Validation
   - title: Data Cleaning

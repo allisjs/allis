@@ -1,10 +1,12 @@
 {
-  "private": true,
+ "name": "iscorrect",
+  "version": "0.0.1",
+  "description": "A JavaScript validator and parser library delivering modularity.",
   "repository": "https://github.com/is-lib/iscorrect/",
   "scripts": {
     "start": "npm run dev",
     "dev": "dumi dev",
-    "build": "turbo run build",
+    "build": "father build",
     "build:watch": "father dev",
     "docs:build": "dumi build",
     "docs:preview": "dumi preview",
@@ -64,8 +66,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-layout-kit": "^1.9.0",
-    "stylelint": "^14.9.1",
-    "turbo": "^2.0.12"
+    "stylelint": "^14.9.1"
   },
   "packageManager": "pnpm@8.15.3"
 }
