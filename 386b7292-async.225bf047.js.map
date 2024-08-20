@@ -1,1 +1,0 @@
-{"version":3,"sources":["node_modules/react/index.js"],"sourcesContent":["'use strict';\n\nif (process.env.NODE_ENV === 'production') {\n  module.exports = require('./cjs/react.production.min.js');\n} else {\n  module.exports = require('./cjs/react.development.js');\n}\n"],"names":[],"mappings":"yLAAA,aAGE,EAAO,OAAO,CAAG,EAAQ"}

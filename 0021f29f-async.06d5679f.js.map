@@ -1,1 +1,0 @@
-{"version":3,"sources":["docs/index.md?type=demo"],"sourcesContent":["import React from 'react';\n     import '/home/runner/work/iscorrect/iscorrect/docs/index.md?watch=parent';\nexport const demos = {\n};"],"names":[],"mappings":"2OAEa,6CAAA,QAFK,cACN,YACL,IAAM,EAAQ,CACrB"}
