@@ -46,4 +46,7 @@ export default defineConfig({
     iscorrect: `${process.cwd()}/packages/iscorrect/src`,
   },
   mako: {},
+  sitemap: {
+    hostname: 'https://iscorrect.jsdev.top'
+  }
 });
